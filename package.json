@@ -1,0 +1,20 @@
+{
+  "name": "absolute-imports",
+  "version": "1.0.0",
+  "description": "Import project assets using absolute paths from the project root",
+  "main": "index.js",
+  "author": "Amsul",
+  "license": "MIT",
+  "scripts": {
+    "develop": "DEBUG=* node ./index.js --project=example --prefix=org",
+    "start": "node ./index.js"
+  },
+  "devDependencies": {
+    "prettier": "^1.7.4"
+  },
+  "dependencies": {
+    "commander": "^2.11.0",
+    "debug": "^3.1.0",
+    "shelljs": "^0.7.8"
+  }
+}

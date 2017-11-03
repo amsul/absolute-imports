@@ -1,0 +1,13 @@
+{
+  "name": "example",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node ../index.js --project=example --prefix=org",
+    "start": "node ./index.js"
+  },
+  "devDependencies": {
+    "absolute-imports": "^1.0.0"
+  }
+}
