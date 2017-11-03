@@ -6,7 +6,6 @@
   "author": "Amsul",
   "license": "MIT",
   "scripts": {
-    "develop": "DEBUG=* node ./index.js --project=example --prefix=org",
     "start": "node ./index.js"
   },
   "devDependencies": {

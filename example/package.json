@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node ../index.js --project=example --prefix=org",
+    "postinstall": "node ../index.js --name=example-org",
     "start": "node ./index.js"
   },
   "devDependencies": {

@@ -4,8 +4,7 @@ const path = require('path')
 const shelljs = require('shelljs')
 
 commander
-  .option('-p, --project <name>', 'The name of the project')
-  .option('-P, --prefix <prefix>', 'The prefix to prepend to the name')
+  .option('-n, --name <name>', 'The name of the project')
   .parse(process.argv)
 
 
@@ -31,9 +30,7 @@ const symlink = (options) => {
 // MAIN //
 //////////
 
-const projectName = commander.project
-const projectPrefix = commander.prefix ? `${commander.prefix}-` : ''
-
+const projectName = commander.name
 const projectPath = process.cwd()
 if (!isDirectory(projectPath)) {
   throw new Error(`No project found at ${projectPath}`)
@@ -43,7 +40,7 @@ debug('setting up symlinks for project %o to %o', projectName, projectPath)
 
 symlink({
   from : projectPath,
-  to   : path.join(projectPath, `node_modules/${projectPrefix}${projectName}`)
+  to   : path.join(projectPath, `node_modules/${projectName}`)
 })
 
 debug('symlinks set up for %o', projectName)
