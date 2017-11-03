@@ -1,6 +1,6 @@
 {
   "name": "absolute-imports",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Import project assets using absolute paths from the project root",
   "main": "index.js",
   "author": "Amsul",
