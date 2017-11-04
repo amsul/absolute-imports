@@ -2,48 +2,53 @@
 
 Import project assets using absolute paths from the project root.
 
-So this&hellip;
+Typically somewhere deep in your project you end up with something like this:
 
 ```js
 const dateUtil = require('../../../utils/date')
 ```
 
-&hellip;becomes&hellip;
+With `absolute-imports`, you now do this:
 
 ```js
-const dateUtil = require('org-app/utils/date')
+const dateUtil = require('your-app-name/utils/date')
 ```
 
-#### Support
 
+#### Compatibility
 Works with React Native and Node.
 
-For web, you don't need this package. Simple add this to your Webpack config:
-
-```diff
-resolve: {
-     // ...
-+  modulesDirectories: ['', 'node_modules'],
-},
-```
-
-## Install
-
+#### Instructions
 ```bash
 yarn add absolute-imports
 ```
 
-## Setup
+##### On the client
+Add the following to your Webpack congif:
+```diff
+resolve: {
+  modules: [process.cwd(), 'node_modules'],
+  alias: {
+    'your-app-name': process.cwd(),
+  }, 
+},
+```
 
-The best way to set up is to add the script to the `postinstall` step - but feel free to move it around as you like.
+##### On the server
+`absolute-imports` needs to be executed once after you install the package, and each time you add or delete packages to your project. 
+For one-time execution, run the following command:
+```js
+  node absolute-imports --name=your-app-name
+```
 
+In order to automate the process of executing the command each time you add or delete packages to your project, you can add the command as a `postInstall` script in your `package.json` file.
 ```js
 // package.json
 {
-  // ...
+  ...
   "scripts" {
-    // ...
-    "postinstall": "node absolute-imports --prefix=org --project=app"
+    ...
+    "postinstall": "node absolute-imports --name=your-app-name"
   },
 }
 ```
