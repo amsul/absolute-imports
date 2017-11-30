@@ -23,7 +23,7 @@ Works with React Native and Node.
 yarn add absolute-imports
 ```
 
-##### On the client
+##### With Webpack
 Add the following to your Webpack congif:
 ```diff
 resolve: {
@@ -34,7 +34,7 @@ resolve: {
 },
 ```
 
-##### On the server
+##### With React Native or Node
 `absolute-imports` needs to be executed once after you install the package, and each time you add or delete packages to your project. 
 For one-time execution, run the following command:
 ```js
