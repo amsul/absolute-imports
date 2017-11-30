@@ -23,25 +23,15 @@ Works with React Native and Node.
 yarn add absolute-imports
 ```
 
-##### With Webpack
-Add the following to your Webpack congif:
-```diff
-resolve: {
-  modules: [process.cwd(), 'node_modules'],
-  alias: {
-    'your-app-name': process.cwd(),
-  }, 
-},
-```
-
 ##### With React Native or Node
-`absolute-imports` needs to be executed once after you install the package, and each time you add or delete packages to your project. 
+`absolute-imports` only needs to be run once. However, if you happen to clean your `node_modules`, it needs to run again.
+
 For one-time execution, run the following command:
 ```js
-  node absolute-imports --name=your-app-name
+node absolute-imports --name=your-app-name
 ```
 
-In order to automate the process of executing the command each time you add or delete packages to your project, you can add the command as a `postInstall` script in your `package.json` file.
+To run the command each time you clean your `node_modules`, add it as a `postinstall` script:
 ```js
 // package.json
 {
@@ -51,4 +41,15 @@ In order to automate the process of executing the command each time you add or d
     "postinstall": "node absolute-imports --name=your-app-name"
   },
 }
+```
+
+##### With Webpack
+This package isn't even needed for Webpack. Add the following to your Webpack config:
+```js
+resolve: {
+  modules: [process.cwd(), 'node_modules'],
+  alias: {
+    'your-app-name': process.cwd(),
+  }, 
+},
 ```
